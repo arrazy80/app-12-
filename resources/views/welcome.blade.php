@@ -22,7 +22,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary position-fixed w-100">
         <div class="container-fluid">
-            <a class="navbar-brand px-4 font-a" href="#">SEE BOOK</a>
+            <a class="navbar-brand px-4 font-a" href="{{ ('/dashboard') }}">SEE BOOK</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -91,7 +91,7 @@
                     </div>
                     <div class="col-7">
                         <div class="col d-flex justify-content-end">
-                            <img src="{{ asset('gambar/gag.png') }}" style="width:650px " alt="">
+                            <img src="{{ asset('gambar/gag.png') }}" style="width:500px " alt="">
                         </div>
                     </div>
                 </div>
