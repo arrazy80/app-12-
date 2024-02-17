@@ -32,7 +32,7 @@
                             </div>
 
                             <div class="d-flex justify-content-center mt-5">
-                                <a href="{{ url('dashboard') }}" class="btn btn-danger">Login</a>
+                                <a href="/dashboard" class="btn btn-danger">Login</a>
                             </div>
                         </form>
                     </div>

@@ -10,9 +10,9 @@
 </head>
 
 <body style="background-color: #713DA6">
-    <div class="container-fluid d-flex justify-content-center min-vh-100 align-items-center">
+    <div class="container-fluid d-flex justify-content-center min-vh-90 align-items-center">
         <div class="container d-flex justify-content-center">
-            <div class="card card-register" style="width: 40rem; height: 500px; background-color: #431B76">
+            <div class="card card-register mt-2" style="width: 35rem; height: 580px; background-color: #431B76">
                 <a href="/" class="text-light my-2 d-flex justify-content-start">
                     <h3 class="bi bi-arrow-circle-fill ms-3 mt-3"></h3>
                 </a>
@@ -25,13 +25,18 @@
                                 <input type="email" class="form-control" id="exampleForControlInput1"
                                     placeholder="name@example.com">
                             </div>
+                            <div class="text-light fw-bold" style="height: 100px">
+                                <label for="exampleForControlInput1" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example" required>
+                            </div>
                             <div class=" text-light fw-bold" style="height: 100px">
                                 <label for="exampleForControlInput1" class="form-label">Password</label>
                                 <input type="email" class="form-control" id="exampleForControlInput1"
                                     placeholder="name@example.com">
                             </div>
+
                             <div class="text-light fw-bold" style="height: 100px">
-                                <label for="exampleForControlInput1" class="form-label">Email</label>
+                                <label for="exampleForControlInput1" class="form-label">Confirm Password</label>
                                 <input type="email" class="form-control" id="email" placeholder="name@example" required>
                             </div>
 
