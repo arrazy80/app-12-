@@ -49,16 +49,9 @@
                     </a>
                 </li>
                 <li class="sidebar-item  ">
-                    <a href="/dashboardAdmin" class='sidebar-link'>
+                    <a href="/dashboardPetugas" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item ">
-                    <a href="/partial.table" class='sidebar-link'>
-                        <i class="bi bi-people"></i>
-                        <span>User</span>
                     </a>
                 </li>
                 <li class="sidebar-item  ">
@@ -73,7 +66,7 @@
                         <span>Kategori Buku</span>
                     </a>
                 </li>
-                <li class="sidebar-item  ">
+               <li class="sidebar-item  ">
                     <a href="/peminjaman.table" class='sidebar-link'>
                         <i class="bi bi-stack"></i>
                         <span>Peminjaman </span>

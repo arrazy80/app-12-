@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('dashboard', function () {
-    return view('dashboard');
+Route::get('dashboardAdmin', function () {
+    return view('dashboardAdmin');
 });
 
 Route::get('login', function () {
@@ -67,8 +67,20 @@ Route::get('buku.buku', function () {
 Route::get('peminjaman.table', function () {
     return view('peminjaman.table');
 });
+
 Route::get('koleksi.table', function () {
     return view('koleksi.table');
 });
 
+Route::get('dashboardPeminjam', function () {
+    return view('dashboardPeminjam');
+});
+
+Route::get('dashboardPetugas', function () {
+    return view('dashboardPetugas');
+});
+
+Route::get('/register', [\App\Http\Controllers\RegisterController::class, 'create'])->name('register');
+
+Route::view('home', 'home')-> name('home');
 

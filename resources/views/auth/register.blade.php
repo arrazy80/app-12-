@@ -19,29 +19,50 @@
                 <h3 class="card-title text-center text-warning fw-bold">Register</h3>
                 <div class="card-body">
                     <div class="container">
-                        <form>
+                        <form action="" method="post">
+                            @csrf
                             <div class="text-light fw-bold" style="height: 100px">
                                 <label for="exampleForControlInput1" class="form-label">Username</label>
-                                <input type="email" class="form-control" id="exampleForControlInput1"
-                                    placeholder="name@example.com">
+                                <input type="text" class="form-control @error('name') is-invalid" @enderror id="name"
+                                    name="name" placeholder="your name" value="{{ old(('name')) }}">
+                                @error('name')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                             <div class="text-light fw-bold" style="height: 100px">
                                 <label for="exampleForControlInput1" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="name@example" required>
+                                <input type="email" class="form-control @error('name') is-invalid" @enderror id="email" name="email"
+                                placeholder="name@example" value="{{ old('email') }}">
+                                @error('email')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class=" text-light fw-bold" style="height: 100px">
                                 <label for="exampleForControlInput1" class="form-label">Password</label>
-                                <input type="email" class="form-control" id="exampleForControlInput1"
-                                    placeholder="name@example.com">
+                                <input type="password" class="form-control @error('password') is-invalid" @enderror id="password" name="password" id="password">
                             </div>
-
+                            @error('password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                             <div class="text-light fw-bold" style="height: 100px">
-                                <label for="exampleForControlInput1" class="form-label">Confirm Password</label>
-                                <input type="email" class="form-control" id="email" placeholder="name@example" required>
+                                <label for="password_confirmation" class="form-label">Password_confirmation</label>
+                                <input type="password" class="form-control  @error('password') is-invalid" @enderror id="password_confirmation" name="password_confirmation"
+                                id="password"
+                                placeholder="password">
                             </div>
-
+                            @error('password_confirmation')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                             <div class="mb-5 d-flex justify-content-center">
-                                <button type="button" class="btn btn-danger">REGIST</button>
+                                <button type="submit" class="btn btn-danger" value="register">REGIST</button>
                             </div>
                         </form>
                     </div>
