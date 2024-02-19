@@ -13,5 +13,15 @@
     <div class="container text-center pt-4">
         Selamat Datang {{ auth()->user()->name }}
     </div>
+    <div class="comtainer text-center pt-4">
+        Selamat datang lekku {{ auth()->user()->name }}
+        <div class="div">
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <input type="submit" class="btn btn-danger" value="logout">
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>

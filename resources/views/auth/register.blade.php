@@ -10,19 +10,19 @@
 </head>
 
 <body style="background-color: #713DA6">
-    <div class="container-fluid d-flex justify-content-center min-vh-90 align-items-center">
+    <div class="container-fluid d-flex justify-content-center min-vh-100 align-items-center">
         <div class="container d-flex justify-content-center">
-            <div class="card card-register mt-2" style="width: 35rem; height: 580px; background-color: #431B76">
+            <div class="card card-register mt-2" style="width: 40rem; height: 580px; background-color: #431B76">
                 <a href="/" class="text-light my-2 d-flex justify-content-start">
                     <h3 class="bi bi-arrow-circle-fill ms-3 mt-3"></h3>
                 </a>
                 <h3 class="card-title text-center text-warning fw-bold">Register</h3>
                 <div class="card-body">
                     <div class="container">
-                        <form action="" method="post">
+                        <form action="/register" method="post">
                             @csrf
                             <div class="text-light fw-bold" style="height: 100px">
-                                <label for="exampleForControlInput1" class="form-label">Username</label>
+                                <label for="name" class="form-label">Username</label>
                                 <input type="text" class="form-control @error('name') is-invalid" @enderror id="name"
                                     name="name" placeholder="your name" value="{{ old(('name')) }}">
                                 @error('name')
@@ -32,7 +32,7 @@
                                 @enderror
                             </div>
                             <div class="text-light fw-bold" style="height: 100px">
-                                <label for="exampleForControlInput1" class="form-label">Email</label>
+                                <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control @error('name') is-invalid" @enderror id="email" name="email"
                                 placeholder="name@example" value="{{ old('email') }}">
                                 @error('email')
@@ -42,7 +42,7 @@
                                 @enderror
                             </div>
                             <div class=" text-light fw-bold" style="height: 100px">
-                                <label for="exampleForControlInput1" class="form-label">Password</label>
+                                <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control @error('password') is-invalid" @enderror id="password" name="password" id="password">
                             </div>
                             @error('password')

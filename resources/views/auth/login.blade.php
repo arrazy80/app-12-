@@ -19,20 +19,30 @@
                 <h3 class="card-title text-center text-warning fw-bold mt-3 ">LOGIN</h3>
                 <div class="card-body">
                     <div class="container">
-                        <form>
-                            <div class="mb-3 my-3 text-light fw-bold" style="height: 100px">
-                                <label for="exampleForControlInput1" class="form-label">Username</label>
-                                <input type="email" class="form-control" id="exampleForControlInput1"
-                                    placeholder="name@example.com">
+                        <form action="{{ route('login') }}" method="post">
+                            @csrf
+                            <div class="mb-3 my-3 text-light semi-bold" style="height:100px">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
+                                       name="email" placeholder="name@example.com" value="{{ old('email') }}">
+                                @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
-                            <div class="mb-3 my-3 text-light fw-bold" style="height: 100px">
-                                <label for="exampleForControlInput1" class="form-label">Password</label>
-                                <input type="email" class="form-control" id="exampleForControlInput1"
-                                    placeholder="name@example.com">
+                            <div class="mb-3 my-3 text-light semi-bold" style="height:100px">
+                                <label for="password" class="form-label">Password</label>
+                                 <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="password">
+                                @error('password')
+                             <div class="invalid-feedback">
+                                {{ $message }}
+                             </div>
+                                 @enderror
                             </div>
 
                             <div class="d-flex justify-content-center mt-5">
-                                <a href="/dashboard" class="btn btn-danger">Login</a>
+                                <a href="/dashboardPeminjam" class="btn btn-danger">Login</a>
                             </div>
                         </form>
                     </div>

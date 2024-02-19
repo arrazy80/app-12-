@@ -82,7 +82,34 @@ Route::get('dashboardPetugas', function () {
 });
 
 Route::get('/register', [RegisterController::class, 'create'])->name('register');
-Route::post('/register', [RegisterController::class, 'store'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::view('home', 'home')-> name('home');
 
+Route::post('/logout', function () {
+    auth()->logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+
+    return redirect('/');
+
+})->name('logout');
+
+// Route::get('/login', [RegisterController::class, 'login'])->name('login');
+
+Route::post('/login', [LoginController::class, 'authenicate'])->name('login');
+
+Route::get('/register', [\App\Http\Controllers\RegisterController::class, 'create'])->name('register')->middleware('guest');
+Route::post('/register', [\App\Http\Controllers\RegisterController::class, 'store'])->name('register')->middleware('guest');
+Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/login', [\App\Http\Controllers\LoginController::class, 'authenticate'])->name('login')->middleware('guest');
+
+
+Route::post('/logout', function () {
+    auth()->logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+
+    return redirect('/');
+})->name('logout')->middleware('auth');
+Route::view('/home', 'home')->name('home')->middleware('auth');

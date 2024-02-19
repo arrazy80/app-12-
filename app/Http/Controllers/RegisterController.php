@@ -12,26 +12,33 @@ class RegisterController extends Controller
 {
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'email' => ['required','email', 'unique:users,email'],
-            'password' => ['reuired', 'min:8'],
-            'password_confirmation' => ['required', 'min:8', 'confirmed']
-        ]);
+        $validated = $request->validate([
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed|min:6',
+            // 'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+            // 'password_confirmation' => 'min:6'
+        ]) ;
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        if ($validated){
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
 
-        if (Auth::attempt(['email' => $user->email, 'password' => $request->password])) {
-            $request->session()->regenerate();
-
-
-            return redirect()->intended('home');
+            // if (Auth::attempt(['email' => $user->email, 'password' => $request->password])) {
+                return redirect()->intended('/login');
+            // }
         }
+
+
     }
     public function create() {
         return view('auth.register');
     }
 }
+
+// $validated = $request->validate([
+//     'title' => 'required|unique:posts|max:255',
+//     'body' => 'required',
+// ]);
