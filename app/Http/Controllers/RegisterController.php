@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Spatie\FlareClient\View;
 
 class RegisterController extends Controller
@@ -23,10 +24,14 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        if (Authth::attempt(['email' => $user->$email, 'password' => $password])) {
+        if (Auth::attempt(['email' => $user->email, 'password' => $request->password])) {
             $request->session()->regenerate();
+
 
             return redirect()->intended('home');
         }
+    }
+    public function create() {
+        return view('auth.register');
     }
 }
