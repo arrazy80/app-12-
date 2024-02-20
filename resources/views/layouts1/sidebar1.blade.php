@@ -73,7 +73,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item  ">
-                    <a href="/welcome" class='sidebar-link'>
+                    <a href="{{ url('logout') }}" method="POST" class='sidebar-link'>
                         <i class="bi bi-box-arrow-right"></i>
                         <span>logout</span>
                     </a>

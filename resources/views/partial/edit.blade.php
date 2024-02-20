@@ -20,11 +20,11 @@
                 </div>
                 <div class="form-group">
                     <label for="nama">Nama Lengkap:</label>
-                    <input type="text" class="form-control" id="nama" placeholder="Shandy Fakhri" readonly>
+                    <input type="text" class="form-control" id="nama" placeholder="haris" readonly>
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat:</label>
-                    <textarea class="form-control" id="alamat" rows="5" placeholder="Cipondoh"></textarea>
+                    <textarea class="form-control" id="alamat" rows="5" placeholder="pinang"></textarea>
                 </div>
 
                 <div class="form-group">

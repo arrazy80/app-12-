@@ -15,17 +15,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
         Role::create([
             'role_name' => 'admin',
-        ])
+        ]);
 
         Role::create([
             'role_name' => 'petugas',
-        ])
+        ]);
 
         Role::create([
             'role_name' => 'peminjam',
-        ])
+        ]);
 
         User::factory(5)->create();
     }

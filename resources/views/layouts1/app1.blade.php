@@ -10,9 +10,9 @@
 
 
 
-  <link rel="stylesheet" href="{{asset('assets')}}/compiled/css/app.css">
-  <link rel="stylesheet" href="{{asset('assets')}}/compiled/css/app-dark.css">
-  <link rel="stylesheet" href="{{asset('assets')}}/compiled/css/iconly.css">
+  <link rel="stylesheet" href="{{asset ('assets')}}/compiled/css/app.css">
+  <link rel="stylesheet" href="{{asset ('assets')}}/compiled/css/app-dark.css">
+  <link rel="stylesheet" href="{{asset ('assets')}}/compiled/css/iconly.css">
 
   <head>
 
@@ -20,7 +20,7 @@
         <div id ="app1">
 
 
-            @include('layouts1.sidebar1')
+            @include('layouts1.sidebar1==')
 
             <div id="main">
                 @include('layouts1.header1')

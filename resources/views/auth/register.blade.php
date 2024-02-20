@@ -19,22 +19,24 @@
                 <h3 class="card-title text-center text-warning fw-bold">Register</h3>
                 <div class="card-body">
                     <div class="container">
-                        <form action="{{ route('auth.store') }}" method="post">
+                        <form action="{{ url('auth/regist') }}" method="POST">
+                            @method("POST")
                             @csrf
                             <div class="text-light fw-bold" style="height: 100px">
                                 <label for="name" class="form-label">Username</label>
                                 <input type="text" class="form-control @error('name') is-invalid" @enderror id="name"
-                                    name="name" placeholder="your name" value="{{ old(('name')) }}">
+                                    name="name" placeholder="your name" value="{{ old('name') }}">
                                 @error('name')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
                             <div class="text-light fw-bold" style="height: 100px">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control @error('name') is-invalid" @enderror id="email" name="email"
-                                placeholder="name@example" value="{{ old('email') }}">
+                                <input type="email"
+                                    class="form-control @error('name') is-invalid" @enderror id="email" name="email"
+                                    placeholder="name@example" value="{{ old('email') }}">
                                 @error('email')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -43,26 +45,28 @@
                             </div>
                             <div class=" text-light fw-bold" style="height: 100px">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control @error('password') is-invalid" @enderror id="password" name="password" id="password">
+                                <input type="password"
+                                    class="form-control @error('password') is-invalid" @enderror id="password"
+                                    name="password" id="password">
                             </div>
                             @error('password')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             <div class="text-light fw-bold" style="height: 100px">
                                 <label for="cofirm-password" class="form-label">confirm npassword</label>
-                                <input type="password" class="form-control  @error('confirm-password') is-invalid" @enderror id="confirm-password" name="confirm-password"
-                                id="password"
-                                placeholder="confirm-password">
+                                <input type="password"
+                                    class="form-control  @error('confirm-password') is-invalid" @enderror id="confirm-password"
+                                    name="confirm-password" id="password" placeholder="confirm-password">
                             </div>
                             @error('confirm-password')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             <div class="mb-5 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-danger" value="register">REGIST</button>
+                                <button type="submit" class="btn btn-danger">REGIST</button>
                             </div>
                         </form>
                     </div>

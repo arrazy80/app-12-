@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
@@ -19,7 +20,15 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            if(Auth()->user()->role_id === 1){
+                return redirect()->intended('/admin');
+            }
+            else if (Auth()->user()->role_id === 2){
+                return redirect()->intended('/petugas');
+
+            } else {
+                return redirect()->intended('/peminjam');
+            }
         }
 
         return back()->withErrors([
@@ -27,7 +36,8 @@ class AuthController extends Controller
         ]);
     }
 
-    public function store(Request $request){
+    public function regist(Request $request){
+
         $validate = $request->validate([
             'name' => 'required',
             'email' => 'required|unique:users,email',

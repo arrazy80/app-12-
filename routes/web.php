@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PeminjamController;
+use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\PetugasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +18,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('dashboardAdmin', function () {
-    return view('dashboardAdmin');
-});
-
 Route::get('login', function () {
     return view('auth.login');
 });
@@ -29,9 +29,6 @@ Route::get('register', function () {
 Route::get('welcome', function () {
     return view('welcome');
 });
-
-
-
 
 Route::get('partial.table', function () {
     return view('partial.table');
@@ -75,23 +72,53 @@ Route::get('koleksi.table', function () {
     return view('koleksi.table');
 });
 
-Route::get('dashboardPeminjam', function () {
-    return view('dashboardPeminjam');
+
+
+
+
+// Route::get('auth/login', [AuthControllerroller::class, 'login'])->name('auth.login')->middleware('guest');
+
+// Route::post('auth/login', [AuthController::class, 'authenticate'])->name('auth.authenticate')->middleware('guest');
+
+// Route::get('auth/register', [AuthController::class, 'register'])->name('auth.register')->middleware('guest');
+
+// Route::post('auth/register', [AuthController::class, 'store'])->name('auth.store')->middleware('guest');
+
+Route::group(['middleware' => 'guest'], function() {
+    Route::get('auth/login', [AuthController::class, 'login'])->name('auth.login');
+    Route::post('auth/login', [AuthController::class, 'authenticate'])->name('auth.authenticate');
 });
 
-Route::get('dashboardPetugas', function () {
-    return view('dashboardPetugas');
+Route::group(['middleware' => 'guest'], function() {
+    Route::get('auth/register', [AuthController::class, 'register'])->name('auth.login');
+    Route::post('auth/regist', [AuthController::class, 'regist'])->name('register.action');
+});
+
+Route::group(['middleware' => ['auth', 'checkrole:1,3']], function() {
+    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/redirect', [RedirectController::class, 'cek']);
+});
+
+Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
+    Route::get('/admin', [adminController::class, 'index']);
+});
+
+Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
+    Route::get('/petugas', [PetugasController::class, 'index']);
+});
+
+Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
+    Route::get('/peminjam', [PeminjamController::class, 'index']);
 });
 
 
 
-Route::get('auth/login', [AuthControllerroller::class, 'login'])->name('auth.login')->middleware('guest');
 
-Route::post('auth/login', [AuthController::class, 'authenticate'])->name('auth.authenticate')->middleware('guest');
 
-Route::get('auth/register', [AuthController::class, 'register'])->name('auth.register')->middleware('guest');
 
-Route::post('auth/register', [AuthController::class, 'store'])->name('auth.store')->middleware('guest');
+
+
+
 
 // Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout')->middleware('guest');
 

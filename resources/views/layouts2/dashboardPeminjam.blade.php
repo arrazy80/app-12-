@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('konten')
+@extends('layouts2.app2')
+@section('konten2')
     <div class="page-heading">
         <h3>Profile Statistics</h3>
     </div>
@@ -50,7 +50,7 @@
                                             <i class="iconly-boldAdd-User"></i>
                                         </div>
                                     </div>
-                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-10">
+                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-">
                                         <h6 class="text-muted font-semibold">Buku yang dipinjam</h6>
                                         <h6 class="font-extrabold mb-0">0</h6>
                                     </div>
@@ -68,7 +68,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-10">
-                                        <h6 class="text-muted font-semibold">User</h6>
+                                        <h6 class="text-muted font-semibold">Buku yang dipinjam</h6>
                                         <h6 class="font-extrabold mb-0">0</h6>
                                     </div>
                                 </div>
@@ -76,10 +76,7 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
         </section>
     </div>
 @endsection

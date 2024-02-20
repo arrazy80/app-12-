@@ -1,5 +1,5 @@
-@extends('layouts2.app2')
-@section('konten2')
+@extends('layouts1.app1')
+@section('konten1')
     <div class="page-heading">
         <h3>Profile Statistics</h3>
     </div>

@@ -13,7 +13,7 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                            <li class="breadcrumb-item active" aria-current="page">Data Table</li>
                         </ol>
                     </nav>
                 </div>
@@ -40,8 +40,8 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Shandy Fakhri</td>
-                                <td>Cipondoh</td>
+                                <td>haris</td>
+                                <td>pinang</td>
                                 <td>user</td>
                                 <td>
                                     <a href="/partial.edit"> <button type="button"
