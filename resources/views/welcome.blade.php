@@ -29,8 +29,8 @@
             </button>
             <div class="">
                 <form class="" role="search">
-                    <a href="{{ url('login') }} " class="btn btn-info">Login</a>
-                    <a href="{{ url('register') }} " class="btn btn-danger">Register</a>
+                    <a href="{{ url('/login') }} " class="btn btn-info">Login</a>
+                    <a href="{{ url('/register') }} " class="btn btn-danger">Register</a>
                 </form>
             </div>
         </div>

@@ -79,12 +79,14 @@
                         <span>Peminjaman </span>
                     </a>
                 </li>
+                <form action="{{ url('logout') }}" method="POST">
                 <li class="sidebar-item  ">
-                    <a href="{{ url('welcome') }}" class='sidebar-link'>
+                    <a href="/logout" class='sidebar-link' onclick="event.preventDefault">
                         <i class="bi bi-box-arrow-right"></i>
                         <span>logout</span>
                     </a>
                 </li>
+            </form>
             </ul>
         </div>
     </div>

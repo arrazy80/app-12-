@@ -19,7 +19,7 @@
                 <h3 class="card-title text-center text-warning fw-bold mt-3 ">LOGIN</h3>
                 <div class="card-body">
                     <div class="container">
-                        <form action="{{ route('login') }}" method="post">
+                        <form action="{{ route('auth.authenticate') }}" method="post">
                             @csrf
                             <div class="mb-3 my-3 text-light semi-bold" style="height:100px">
                                 <label for="email" class="form-label">Email address</label>

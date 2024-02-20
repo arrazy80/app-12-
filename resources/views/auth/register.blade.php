@@ -19,7 +19,7 @@
                 <h3 class="card-title text-center text-warning fw-bold">Register</h3>
                 <div class="card-body">
                     <div class="container">
-                        <form action="/register" method="post">
+                        <form action="{{ route('auth.store') }}" method="post">
                             @csrf
                             <div class="text-light fw-bold" style="height: 100px">
                                 <label for="name" class="form-label">Username</label>
@@ -51,12 +51,12 @@
                             </div>
                         @enderror
                             <div class="text-light fw-bold" style="height: 100px">
-                                <label for="password_confirmation" class="form-label">Password_confirmation</label>
-                                <input type="password" class="form-control  @error('password') is-invalid" @enderror id="password_confirmation" name="password_confirmation"
+                                <label for="cofirm-password" class="form-label">confirm npassword</label>
+                                <input type="password" class="form-control  @error('confirm-password') is-invalid" @enderror id="confirm-password" name="confirm-password"
                                 id="password"
-                                placeholder="password">
+                                placeholder="confirm-password">
                             </div>
-                            @error('password_confirmation')
+                            @error('confirm-password')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>

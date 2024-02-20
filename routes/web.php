@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,13 +22,15 @@ Route::get('login', function () {
     return view('auth.login');
 });
 
+Route::get('register', function () {
+    return view('auth.register');
+});
+
 Route::get('welcome', function () {
     return view('welcome');
 });
 
-Route::get('register', function () {
-    return view('auth.register');
-});
+
 
 
 Route::get('partial.table', function () {
@@ -81,35 +83,49 @@ Route::get('dashboardPetugas', function () {
     return view('dashboardPetugas');
 });
 
-Route::get('/register', [RegisterController::class, 'create'])->name('register');
-Route::post('/register', [RegisterController::class, 'store']);
-
-Route::view('home', 'home')-> name('home');
-
-Route::post('/logout', function () {
-    auth()->logout();
-    request()->session()->invalidate();
-    request()->session()->regenerateToken();
-
-    return redirect('/');
-
-})->name('logout');
-
-// Route::get('/login', [RegisterController::class, 'login'])->name('login');
-
-Route::post('/login', [LoginController::class, 'authenicate'])->name('login');
-
-Route::get('/register', [\App\Http\Controllers\RegisterController::class, 'create'])->name('register')->middleware('guest');
-Route::post('/register', [\App\Http\Controllers\RegisterController::class, 'store'])->name('register')->middleware('guest');
-Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login')->middleware('guest');
-Route::post('/login', [\App\Http\Controllers\LoginController::class, 'authenticate'])->name('login')->middleware('guest');
 
 
-Route::post('/logout', function () {
-    auth()->logout();
-    request()->session()->invalidate();
-    request()->session()->regenerateToken();
+Route::get('auth/login', [AuthControllerroller::class, 'login'])->name('auth.login')->middleware('guest');
 
-    return redirect('/');
-})->name('logout')->middleware('auth');
-Route::view('/home', 'home')->name('home')->middleware('auth');
+Route::post('auth/login', [AuthController::class, 'authenticate'])->name('auth.authenticate')->middleware('guest');
+
+Route::get('auth/register', [AuthController::class, 'register'])->name('auth.register')->middleware('guest');
+
+Route::post('auth/register', [AuthController::class, 'store'])->name('auth.store')->middleware('guest');
+
+// Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout')->middleware('guest');
+
+
+
+// Route::get('/register', [RegisterController::class, 'create'])->name('register');
+// Route::post('/register', [RegisterController::class, 'store']);
+
+// Route::view('home', 'home')-> name('home');
+
+// Route::post('/logout', function () {
+//     auth()->logout();
+//     request()->session()->invalidate();
+//     request()->session()->regenerateToken();
+
+//     return redirect('/');
+
+// })->name('logout');
+
+// // Route::get('/login', [RegisterController::class, 'login'])->name('login');
+
+// Route::post('/login', [LoginController::class, 'authenicate'])->name('login');
+
+// Route::get('/register', [\App\Http\Controllers\RegisterController::class, 'create'])->name('register')->middleware('guest');
+// Route::post('/register', [\App\Http\Controllers\RegisterController::class, 'store'])->name('register')->middleware('guest');
+// Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login')->middleware('guest');
+// Route::post('/login', [\App\Http\Controllers\LoginController::class, 'authenticate'])->name('login')->middleware('guest');
+
+
+// Route::post('/logout', function () {
+//     auth()->logout();
+//     request()->session()->invalidate();
+//     request()->session()->regenerateToken();
+
+//     return redirect('/');
+// })->name('logout')->middleware('auth');
+// Route::view('/home', 'home')->name('home')->middleware('auth');
