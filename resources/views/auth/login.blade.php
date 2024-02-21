@@ -20,6 +20,7 @@
                 <div class="card-body">
                     <div class="container">
                         <form action="{{ route('auth.authenticate') }}" method="post">
+                            @method('post')
                             @csrf
                             <div class="mb-3 my-3 text-light semi-bold" style="height:100px">
                                 <label for="email" class="form-label">Email address</label>

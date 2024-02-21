@@ -20,7 +20,7 @@
         <div id ="app1">
 
 
-            @include('layouts1.sidebar1==')
+            @include('layouts1.sidebar1')
 
             <div id="main">
                 @include('layouts1.header1')

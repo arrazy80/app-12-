@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('konten')
     <div class="page-heading">
-        <h3>Profile Statistics</h3>
+        <h3>Selamat Datang Admin</h3>
     </div>
     <div class="page-content">
         <section class="row">

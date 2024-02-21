@@ -80,7 +80,7 @@
                     </a>
                 </li>
                 <form action="{{ url('logout') }}" method="POST">
-                <li class="sidebar-item  ">
+                <li class="sidebar-item">
                     <a href="/logout" class='sidebar-link' onclick="event.preventDefault">
                         <i class="bi bi-box-arrow-right"></i>
                         <span>logout</span>

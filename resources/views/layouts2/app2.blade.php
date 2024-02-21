@@ -25,7 +25,7 @@
             <div id="main">
                 @include('layouts2.header2')
 
-                @yield('konten1')
+                @yield('konten2')
 
                 @include('layouts2.footer2')
             </div>

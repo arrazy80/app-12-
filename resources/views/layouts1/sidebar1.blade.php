@@ -49,7 +49,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item  ">
-                    <a href="/dashboardPeminjam" class='sidebar-link'>
+                    <a href="/dashboardPetugas" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
@@ -72,12 +72,14 @@
                         <span>Peminjaman </span>
                     </a>
                 </li>
-                <li class="sidebar-item  ">
-                    <a href="{{ url('logout') }}" method="POST" class='sidebar-link'>
-                        <i class="bi bi-box-arrow-right"></i>
-                        <span>logout</span>
-                    </a>
-                </li>
+                <form action="{{ url('logout') }}" method="POST">
+                    <li class="sidebar-item">
+                        <a href="/logout" class='sidebar-link' onclick="event.preventDefault">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>logout</span>
+                        </a>
+                    </li>
+                </form>
             </ul>
         </div>
     </div>
