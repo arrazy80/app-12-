@@ -9,12 +9,12 @@ class RedirectController extends Controller
     public function cek() {
         // dd(Auth()->user());
         if(Auth()->user()->role_id === 1){
-            return redirect()->intended('/admin');
+            return redirect('dashboard');
         }
         else if (Auth()->user()->role_id === 2){
-            return redirect()->intended('/petugas');
+            return redirect('dashboard');
         } else {
-            return redirect()->intended('/peminjam');
+            return redirect();
         }
     }
 }

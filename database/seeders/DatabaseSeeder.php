@@ -28,6 +28,26 @@ class DatabaseSeeder extends Seeder
             'role_name' => 'peminjam',
         ]);
 
-        User::factory(5)->create();
+        User::create([
+            'role_id' => 1,
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('password') ,
+
+        ]);
+        User::create([
+            'role_id' => 2,
+            'name' => 'petugas',
+            'email' => 'petugas@gmail.com',
+            'password' => bcrypt('password') ,
+
+        ]);
+        User::create([
+            'role_id' => 3,
+            'name' => 'peminjam',
+            'email' => 'peminjam@gmail.com',
+            'password' => bcrypt('password') ,
+
+        ]);
     }
 }

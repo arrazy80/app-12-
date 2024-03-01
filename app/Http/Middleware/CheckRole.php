@@ -19,7 +19,6 @@ class CheckRole
         if (in_array(auth()->user()->role_id, $roles)) {
             return $next ($request);
         }
-
-        return redirect('/redirect');
+        abort(403, 'sdasda');
     }
 }

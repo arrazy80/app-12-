@@ -19,15 +19,18 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
             if(Auth()->user()->role_id === 1){
-                return redirect()->intended('/admin');
+                // return redirect()->intended('/admin');
+                return redirect()->route('admin.dasboard');
             }
             else if (Auth()->user()->role_id === 2){
-                return redirect()->intended('/petugas');
+                // return redirect()->intended('/petugas');
+                return redirect('dashboard');
+
 
             } else {
-                return redirect()->intended('/peminjam');
+                // return redirect()->intended('/peminjam');
+                return redirect('/dashboard');
             }
         }
 

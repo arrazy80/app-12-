@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\adminController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\PeminjamController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RedirectController;
-use App\Http\Controllers\PetugasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -84,32 +83,19 @@ Route::get('koleksi.table', function () {
 
 // Route::post('auth/register', [AuthController::class, 'store'])->name('auth.store')->middleware('guest');
 
-Route::group(['middleware' => 'guest'], function() {
+Route::group(['middleware' => 'guest'], function () {
     Route::get('auth/login', [AuthController::class, 'login'])->name('auth.login');
     Route::post('auth/login', [AuthController::class, 'authenticate'])->name('auth.authenticate');
-});
-
-Route::group(['middleware' => 'guest'], function() {
     Route::get('auth/register', [AuthController::class, 'register'])->name('auth.login');
     Route::post('auth/regist', [AuthController::class, 'regist'])->name('register.action');
 });
 
-Route::group(['middleware' => ['auth', 'checkrole:1,3']], function() {
-    Route::get('/logout', [AuthController::class, 'logout']);
-    Route::get('/redirect', [RedirectController::class, 'cek']);
+Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dasboard');
 });
 
-Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
-    Route::get('/admin', [adminController::class, 'index']);
-});
 
-Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
-    Route::get('/petugas', [PetugasController::class, 'index']);
-});
-
-Route::group(['middleware' => ['auth', 'checkrole:3']], function() {
-    Route::get('/peminjam', [PeminjamController::class, 'index']);
-});
+Route::get('/', [HomeController::class, 'index']);
 
 
 
